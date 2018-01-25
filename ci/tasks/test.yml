@@ -13,5 +13,3 @@ inputs:
 run:
   path: attendee-service-source/ci/tasks/test.sh
 
-shell: |
-    echo 'line one’
