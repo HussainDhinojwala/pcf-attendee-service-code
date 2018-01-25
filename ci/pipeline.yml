@@ -3,7 +3,7 @@ resources:
 - name: attendee-service-source
   type: git
   source:
-    uri: https://github.com/pivotal-education/pcf-attendee-service-code.git
+    uri: https://github.com/HussainDhinojwala/pcf-attendee-service-code.git
     branch: master
 
 - name: deploy-attendee-service
@@ -35,7 +35,7 @@ jobs:
     file: attendee-service-source/ci/tasks/package.yml
   - put: deploy-attendee-service
     params:
-      manifest: attendee-service/manifest.yml
+      manifest: attendee-service-source/manifest.yml
       path: package-output/attendee-service.jar
 
 - name: smoke_test
@@ -47,5 +47,5 @@ jobs:
   - task: smoke_test
     file: attendee-service-source/ci/tasks/smoke-test.yml
     params:
-      ATTENDEE_SERVICE_URL: https://github.com/pivotal-enablement/attendee-service
+      ATTENDEE_SERVICE_URL: https://attendee-service-grouchy-lynx.apps.cumuluslabs.io
 
